@@ -1,0 +1,9 @@
+.vs/                       
+packages/                  
+ADO/bin/       
+ADO/Content/  
+ADO/obj/
+ADO/Scripts/  
+*.user 
+*.config                   
+*.csproj                  
