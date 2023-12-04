@@ -47,6 +47,14 @@ namespace ADO
                     string filename = Path.GetFileName(FileUploadControl.FileName);
                     string savePath = Server.MapPath("~/UploadedImages/") + filename;
                     FileUploadControl.SaveAs(savePath);
+
+                    // 將上傳的圖片顯示在網頁上
+                    Image uploadedImage = new Image();
+                    uploadedImage.ImageUrl = "~/UploadedImages/" + filename;
+                    uploadedImage.Width = 200;
+                    uploadedImage.Height = 200;
+
+                    PlaceHolder2.Controls.Add(uploadedImage);
                 }
                 catch (Exception ex)
                 {

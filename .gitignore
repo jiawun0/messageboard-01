@@ -5,5 +5,4 @@ ADO/Content/
 ADO/obj/
 ADO/Scripts/  
 *.user 
-*.config                   
-*.csproj                  
+*.config                                   
