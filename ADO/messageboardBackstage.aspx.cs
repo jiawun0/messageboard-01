@@ -13,7 +13,7 @@ namespace ADO
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (!IsPostBack)                                                        // TC：後臺好像沒有權限的設定，一般用戶都可以登入使用
             {
                 ShowDB();
 
@@ -25,6 +25,11 @@ namespace ADO
 
                     Literal1.Text = "歡迎, " + userNickname + "!";
                 }
+                // TC：類似這樣，但前提是你有SQL中有一個權限的資料表
+                //if (Session["Authority"] != null)    
+                //{
+                //    Respone.Redircrt("")
+                //}
             }
         }
         void ShowDB()
@@ -189,7 +194,7 @@ namespace ADO
             //sqlCommand.Parameters.AddWithValue("@boardId", boardId);
             //sqlCommand.CommandText = sql;
 
-            string deleteReplySql = $"delete from reply where postId = @boardId";
+            string deleteReplySql = $"delete from reply where postId = @boardId";                                 //TC：這邊好像重複了(和下面那段)
             SqlCommand deleteReplyCommand = new SqlCommand(deleteReplySql, connection);
             deleteReplyCommand.Parameters.AddWithValue("@boardId", boardId);
             deleteReplyCommand.ExecuteNonQuery();
