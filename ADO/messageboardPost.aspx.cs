@@ -24,13 +24,9 @@ namespace ADO
                 Literal2.Text = "歡迎, " + userNickname + "!";
 
             }
-            else                                   //TC：好像缺乏這邊，沒有登入的話會被重新導向
-            {
-                Response.Redirect(""); //TC：好像缺乏這邊
-            }
         }
 
-        void ShowDB(string LoginId)  //叫出暱稱    //TC：應該把暱稱存在session就可以不用這個function了
+        void ShowDB(string LoginId)  //叫出暱稱
         {
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["ConnectReply"].ConnectionString);
 
@@ -73,7 +69,7 @@ namespace ADO
             connection.Close();
         }
 
-        string ShowNickname(string LoginId) //叫出表頭登入者   //TC：應該把暱稱存在session就可以不用這個function了
+        string ShowNickname(string LoginId) //叫出表頭登入者
         {
             string userNickname = "";
 
@@ -103,9 +99,9 @@ namespace ADO
             return userNickname;
         }
 
-        protected void Button1_Click(object sender, EventArgs e)    //TC：button語意建議調整
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            if(Session["LoginId"] != null)                                               //TC：這邊應該可以不用IF，應為page_Load已經確定是可以user登入狀態了
+            if(Session["LoginId"] != null)
             {
                 string LoginId = Session["LoginId"].ToString(); // 取得目前登入的使用者 ID
 

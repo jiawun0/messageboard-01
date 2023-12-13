@@ -16,7 +16,7 @@ namespace ADO
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)    //TC：按鈕名稱語意建議調整
+        protected void Button1_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["ConnectLogin"].ConnectionString);
 
@@ -73,10 +73,10 @@ namespace ADO
                 // 登入失敗
                 Response.Write("<script>alert('帳號或密碼錯誤，請重新輸入');</script>");
             }
-            //connection.Close();                                                          //TC：這邊可以Close      
+            //connection.Close();
         }
 
-        protected void Button2_Click(object sender, EventArgs e)    // TC：按鈕名稱語意建議調整
+        protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("messageboardRegister.aspx");
         }

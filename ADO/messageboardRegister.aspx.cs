@@ -38,14 +38,14 @@ namespace ADO
             sqlCommand.Parameters.AddWithValue("@Password", TextBox_Password.Text.Trim());
             sqlCommand.Parameters.AddWithValue("@NickName", TextBox_NickName.Text.Trim());
 
-            string Password = TextBox_Password.Text.Trim();   //TC：這邊兩行應該要放在上面三行上面，
+            string Password = TextBox_Password.Text.Trim();
             string pwCheck = TextBox_pwCheck.Text.Trim();
 
             if (TextBox_Password.Text.Length < 6)
             {
                 Response.Write("<script>alert('密碼必須至少包含 6 個字元');</script>");
                 connection.Close();
-                return;                                                                  //TC：這個Return寫的很有趣，其實應該可以結合驗證控制項
+                return;
             }
 
             if (Password != pwCheck)
@@ -71,7 +71,7 @@ namespace ADO
             connection.Close();
         }
 
-        protected void Button2_Click(object sender, EventArgs e)   //TC：這邊Button2看不出來是什麼功用，建議名稱ButtonRegister
+        protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("messageboardhomepage.aspx");
         }

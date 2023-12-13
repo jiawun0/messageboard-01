@@ -17,7 +17,7 @@ namespace ADO
         {
             if (!IsPostBack)
             {
-                //ShowDB(); //TC：這個是不是調整到下面的IF裡面
+                ShowDB();
 
                 if (Session["LoginId"] != null)
                 {
@@ -25,9 +25,7 @@ namespace ADO
 
                     string userNickname = ShowNickname(loginId); 
 
-                    Literal1.Text = "歡迎, " + userNickname + "!";
-
-                    ShowDB(); //TC：調整到這裡
+                    Literal1.Text = "歡迎, " + userNickname + "!"; 
                 }
             }
         }
@@ -98,10 +96,10 @@ namespace ADO
             SqlDataReader reader = sqlCommand.ExecuteReader();
             if (reader.HasRows)
             {
-                while (reader.Read())           //TC： 這邊可以改成if就好了
+                while (reader.Read())
                 {
                     userNickname = reader["NickName"].ToString();
-                    break;                              //TC： 改成if就不用break了
+                    break;
                 }
             }
 
@@ -110,7 +108,7 @@ namespace ADO
             return userNickname;
         }
 
-        protected void Button1_Click(object sender, EventArgs e)    //TC：Button語意建議調整
+        protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("messageboardPost.aspx");
         }
